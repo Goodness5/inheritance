@@ -2,9 +2,17 @@
 pragma solidity 0.8.17;
 
 
-import {IStudents} from "./IStudent.sol";
+import {IStudents, Data} from "./IStudent.sol";
 
 contract Chairman{
+
+    // struct Data{
+    //     string name;
+    //     uint Id;
+    //     uint age;
+    //     string gender;
+    //     bool status;
+    // }
 
     address[] staffs;
     address Admin;  
@@ -31,6 +39,13 @@ contract Chairman{
         studentDetail.registerStudent(_name, student, _age, _gender);
 
     }
+
+     function getStudent(address student) external view returns(Data memory _data){
+            _data = studentDetail.getStudent(student);
+     }
+
+
+
     fallback() external payable{}
 
     receive() payable external{}
