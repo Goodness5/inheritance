@@ -40,6 +40,10 @@ contract Chairman{
 
     }
 
+    function checkStudent(address _student) public view returns (Data memory _data) {
+        _data = studentDetail.getStudent(_student);
+    }
+
      function getStudent(address student) external view returns(Data memory _data){
             _data = studentDetail.getStudent(student);
      }
